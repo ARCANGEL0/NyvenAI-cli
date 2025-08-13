@@ -19,7 +19,7 @@ It supports multiple modes, tidy formatted output in terminal window, persistent
 - **Multiple Modes** – Generic AI chat + Web search, shell commands and execution, code generation & save to file, pentest mode with interactive and autonomous execution.
 - **Formatted output** – Easy visualization data on terminal, outputs saved in frames responsive to window size.
 - **Persistent History** – Keeps context of chat if used with proper flags. Chat history is saved in ~/.config/NyxAI/chats.json
-- **No OpenAI dependencies** – Since I'm motivated by opensource and I don't want to set any API key to use megacorporates AI models, I'm using my personal local model, present in this code, totally modifiable to set your own endpoint or ollama model from *:11434.
+- **No OpenAI dependencies** – Since I'm motivated by opensource and I don't want to set any API key to use these corporate paid AI models, I'm using my personal local model, present in this code, totally modifiable to set your own endpoint or ollama model from *:11434.
  
 ---
 
