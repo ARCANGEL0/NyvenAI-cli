@@ -60,12 +60,12 @@ You can also use custom flags for different agent modes in Nyx.
 
 > Usage: v [options] <question or prompt>
 > -w, --web         Activate real time web searching <br>
-> -c, --code        Tells Nyx to handle code generation, returning a description of code and full code itself, being able to save on disk. <br>
-> -s, --shel        Tells Nyx to generate shell commands for specific usage based on prompt, returns a short text and the command to be run at CLI <br>
-> -i, --interactive Enters interactive mode and enables chat history, you ask a question and proceed to make a new question in context or quit. <br>
-> -a, --auto        (EXPERIMENTAL) Autonomous multi-step cybersecurity mode, pass an initial prompts and let Nyx autorun commands and analyze outputs, and advance to next steps by itself. <br>
-> -x, --agent       Manual cybersecurity assistant, analyzes given outputs, handles prompts and deal suggestions with chat history, but not autonomously. <br>
-> -r, --reset       Erases the chat history saved in config folder <br>
+> -c, --code        Tells Nyx to handle code generation, returning a description of code and full code itself, being able to save on disk. <br><br>
+> -s, --shel        Tells Nyx to generate shell commands for specific usage based on prompt, returns a short text and the command to be run at CLI <br><br>
+> -i, --interactive Enters interactive mode and enables chat history, you ask a question and proceed to make a new question in context or quit. <br><br>
+> -a, --auto        (EXPERIMENTAL) Autonomous multi-step cybersecurity mode, pass an initial prompts and let Nyx autorun commands and analyze outputs, and advance to next steps by itself. <br><br>
+> -x, --agent       Manual cybersecurity assistant, analyzes given outputs, handles prompts and deal suggestions with chat history, but not autonomously. <br><br>
+> -r, --reset       Erases the chat history saved in config folder <br><br>
 > -h, --help        Displays the help menu <br>
 
 ### Examples
