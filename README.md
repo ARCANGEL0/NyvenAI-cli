@@ -84,8 +84,8 @@ $ nyx -r # resets all chat history.
 
 ## Project Note
 
-Not much to say, I just needed an interactive AI to speed up my workflow in terminals, and assist at pentesting or coding and hitting Alt + Tab consistently to navigate through documentations, chatGPT for assistance, among other things can be quite annoying. <br>
-And most repo's that offer similar solutions always require an OpenAI key, which I, as a Engineer Grad. student, cannot afford because by tides of destiny, I was born poor. <br>
+Not much to say, I just needed an interactive AI to speed up my workflow in terminals, and assist at pentesting or coding and hitting Alt + Tab consistently to navigate through documentations, chatGPT for assistance, among other things can be quite annoying. <br><br>
+And most repo's that offer similar solutions always require an OpenAI key, which I, as an Engineer Grad. student, cannot afford because by tides of destiny, I was born poor. <br><br>
 So I decided to make the same thing released out there but in my own way and code, and using my personal AI from an endpoint at my server. 🐈
 
 ---
