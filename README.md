@@ -1,7 +1,4 @@
 # NyxAI
------------
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/ARCANGEL0/NyxAI&count_bg=%234c1&title_bg=%23555555&icon=github.svg&icon_color=%23ffffff&title=Views&edge_flat=false)](https://hits.seeyoufarm.com)
 [![GitHub watchers](https://img.shields.io/github/watchers/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/watchers)
 [![GitHub stars](https://img.shields.io/github/stars/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/stargazers)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/pulls)
@@ -62,14 +59,14 @@ cat serverLogs.txt | nyx Analyze these logs and return a solution for it
 You can also use custom flags for different agent modes in Nyx.
 
 > Usage: v [options] <question or prompt>
-> -w, --web         Activate real time web searching
-> -c, --code        Tells Nyx to handle code generation, returning a description of code and full code itself, being able to save on disk.
-> -s, --shel        Tells Nyx to generate shell commands for specific usage based on prompt, returns a short text and the command to be run at CLI
-> -i, --interactive Enters interactive mode and enables chat history, you ask a question and proceed to make a new question in context or quit.
-> -a, --auto        (EXPERIMENTAL) Autonomous multi-step cybersecurity mode, pass an initial prompts and let Nyx autorun commands and analyze outputs, and advance to next steps by itself.
-> -x, --agent       Manual cybersecurity assistant, analyzes given outputs, handles prompts and deal suggestions with chat history, but not autonomously.
-> -r, --reset       Erases the chat history saved in config folder
-> -h, --help        Displays the help menu
+> -w, --web         Activate real time web searching <br>
+> -c, --code        Tells Nyx to handle code generation, returning a description of code and full code itself, being able to save on disk. <br>
+> -s, --shel        Tells Nyx to generate shell commands for specific usage based on prompt, returns a short text and the command to be run at CLI <br>
+> -i, --interactive Enters interactive mode and enables chat history, you ask a question and proceed to make a new question in context or quit. <br>
+> -a, --auto        (EXPERIMENTAL) Autonomous multi-step cybersecurity mode, pass an initial prompts and let Nyx autorun commands and analyze outputs, and advance to next steps by itself. <br>
+> -x, --agent       Manual cybersecurity assistant, analyzes given outputs, handles prompts and deal suggestions with chat history, but not autonomously. <br>
+> -r, --reset       Erases the chat history saved in config folder <br>
+> -h, --help        Displays the help menu <br>
 
 ### Examples
 ```bash 
