@@ -36,16 +36,16 @@ sudo mv nyx.py /usr/bin/nyx
 
 ## Optional Alias
 
-Sometimes on prompt, a sglob wrapper is necessary and to make command easier for usage, you can append the startup in a simple alias at your .zshrc or .bashrc file.
+Sometimes on prompt, a noglob wrapper is necessary and to make command easier for usage, you can append the startup in a simple alias at your .zshrc or .bashrc file.
 
 ```bash
-alias x="sglob nyx $1"
+alias x="noglob nyx $1"
 ```
 
 or an automated command to set it to shell alias in a oneliner
 
 ```bash
-f="$HOME/.${SHELL##*/}rc"; echo 'alias x="sglob nyx $1"' >> "$f" && . "$f"
+f="$HOME/.${SHELL##*/}rc"; echo 'alias x="noglob nyx $1"' >> "$f" && . "$f"
 ```
 
 ## Usage 
