@@ -497,7 +497,7 @@ def call_api_plain(system_prompt, user_msg, use_web=False, upload=False, filePat
             url = API_BASE_FILE
             imageLink = upload_file(filePath)
             payload = {
-                "link": imageLink
+                "link": imageLink,
                 "messages": [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_msg}
