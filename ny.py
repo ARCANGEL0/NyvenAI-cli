@@ -474,7 +474,7 @@ def ollama_active():
 def call_api_plain(system_prompt, user_msg, use_web=False, upload=False, filePath: str = None):
     spinner_start()
     try:
-        if not has_internet():
+        if not checkInternet():
             if not ollama_active():
                 print(format_in_box_markdown("⛛ 𝗘𝗥𝗥𝗢𝗥: 𝗡𝗼 𝗶𝗻𝘁𝗲𝗿𝗻𝗲𝘁 𝗰𝗼𝗻𝗻𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗼𝘂𝗻𝗱\n⨠ 𝗢𝗹𝗹𝗮𝗺𝗮 𝗶𝘀 𝗢𝗙𝗙𝗟𝗜𝗡𝗘", color=Fore.RED))
                 sys.exit(0) 
