@@ -1,7 +1,6 @@
 <div align="center"> 
 
-[nyven.png](https://postimg.cc/4KwrHFbD)
-
+![Nyven](https://rest.ishanoshada.com/svg/banner/blackhole/Nyven.AI)
 # Nyven.AI
 [![GitHub watchers](https://img.shields.io/github/watchers/ARCANGEL0/NyvenAI-cli.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyvenAI-cli/watchers)
 [![GitHub stars](https://img.shields.io/github/stars/ARCANGEL0/NyvenAI-cli.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyvenAI-cli/stargazers)
