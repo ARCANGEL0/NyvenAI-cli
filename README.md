@@ -7,7 +7,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/ARCANGEL0/NyvenAI-cli.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyvenAI-cli/network/members)
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square)
 
-![Stats](https://dynamic-badges.ishanoshada.com/svg/count/8/Repository%20Views/Nyven)
+![Stats](https://dynamic-badges.ishanoshada.com/svg/count/7/Repository%20Views/Nyven)
 
 
 </div> 
