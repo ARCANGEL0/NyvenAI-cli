@@ -57,6 +57,7 @@ You can also use custom flags for different agent modes in Nyx.
 > -w, --web         Activate real time web searching <br><br>
 > -c, --code        Tells Nyx to handle code generation, returning a description of code and full code itself, being able to save on disk. <br><br>
 > -s, --shell        Tells Nyx to generate shell commands for specific usage based on prompt, returns a short text and the command to be run at CLI <br><br>
+> -s, --file        Passes a local image as argument to upload telling Nyven to analyze it, goes along with prompt for image <br><br>
 > -i, --interactive Enters interactive mode and enables chat history, you ask a question and proceed to make a new question in context or quit. <br><br>
 > -a, --auto        (EXPERIMENTAL) Autonomous multi-step cybersecurity mode, pass an initial prompts and let Nyx autorun commands and analyze outputs, and advance to next steps by itself. <br><br>
 > -x, --agent       Manual cybersecurity assistant, analyzes given outputs, handles prompts and deal suggestions with chat history, but not autonomously. <br><br>
@@ -69,6 +70,7 @@ $ ny -s list all files sorted by size # generates a command and asks user if he 
 $ ny -c Python script to merge two CSV files # generates a short text and full python code, and asks user to copy code or save as a file in local dir.
 $ ny -w Latest CVE for OpenSSL # searches web for all possible index and findings on user prompt (CVE searches)
 $ ny -a Help me in a pentest process, to enumerate this IP 10.10.x.x and get a webshell # Nyx will provide suggestions and commands to be run and ask authorization to run them, after running he will self collect the logs, analyze and suggest next steps and repeat the cycle.
+$ ny -f /home/user/kitty.jpg can you tell me the color of this cat?
 $ ny -i Tell me about Rutherford atom model # after output, you will have option to ask a new question i.e: ''What about Schrodinger model?'' and continue conversation in context.
 $ ny -x i need help to enumerate 192.168.0.10 for open ports # Nyx will return a small and a list of commands to be run by user, and ask them to retrieve the logs by calling command again, as in example below
 $ cat nmapOutput.txt | nyx -x i have run nmap and found these info, what do you suggest now? # Continues conversation saved on chat.json, analyzes nmap output and proceeds to suggest next steps
