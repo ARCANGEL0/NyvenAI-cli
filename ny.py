@@ -33,6 +33,7 @@ init(autoreset=True)
 API_BASE_PLAIN = "http://129.146.165.179/gpt"
 API_BASE_WEB = "http://129.146.165.179/gptWeb"
 API_BASE_FILE = "http://129.146.165.179/vision" 
+API_OLLAMA_URL = "http://localhost:11434" 
 
 HISTORY_DIR = os.path.expanduser("~/.config/NyvenAI")
 HISTORY_FILE = os.path.join(HISTORY_DIR, "chat.json")
@@ -454,10 +455,43 @@ def upload_file(filepath: str) -> str:
     else:
         raise Exception(f"Upload failed: {r.text}")
 
+def checkInternet(host="8.8.8.8", port=53, timeout=3):
+     try:
+        socket.setdefaulttimeout(timeout)
+        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+        return True
+    except socket.error:
+        return False
+
+def ollama_active():
+     try:
+        r = requests.get(f"{API_OLLAMA_URL}/api/tags", timeout=2)
+        return r.status_code == 200
+    except requests.RequestException:
+        return False
+
 
 def call_api_plain(system_prompt, user_msg, use_web=False, upload=False, filePath: str = None):
     spinner_start()
     try:
+        if not has_internet():
+            if not ollama_active():
+                print(format_in_box_markdown("⛛ 𝗘𝗥𝗥𝗢𝗥: 𝗡𝗼 𝗶𝗻𝘁𝗲𝗿𝗻𝗲𝘁 𝗰𝗼𝗻𝗻𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗼𝘂𝗻𝗱\n⨠ 𝗢𝗹𝗹𝗮𝗺𝗮 𝗶𝘀 𝗢𝗙𝗙𝗟𝗜𝗡𝗘", color=Fore.RED))
+                sys.exit(0) 
+                
+            url = f"{API_OLLAMA_URL}/api/chat"
+            payload = {
+                "model": "llama3",  # Llama model if available, update to yours accordingly for offline usage.
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_msg}
+                ]
+            }
+            r = requests.post(url, json=payload)
+            r.raise_for_status()
+            data = r.json()
+            return data.get("message", {}).get("content", "No response from Ollama.")
+        
         if upload:    
             use_web = False
             url = API_BASE_FILE
