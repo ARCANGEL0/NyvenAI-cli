@@ -306,6 +306,7 @@ Options:
 -w, --web | Use the web search module 
 -c, --code | Code mode: get code with description + raw code output
 -s, --shell | Shell mode: get shell command with description + raw command
+-f, --file | Provide an image file for Nyven to analyze along with prompt.
 -a, --auto | Autonomous agent mode: interactive chat with auto pentest and reading self outputs (EXPERIMENTAL)
 -x, --agent | Agent mode: get pentest assistance on manual mode, sending questions and logs
 -i, --interactive | Interactive chat mode with history saved (~/.config/NyvenAI/chats.json)
