@@ -873,7 +873,7 @@ def main():
             elif choice == 'n':
                 continue 
             else:
-                print("\n󰑝 Nʏx 󰔷")
+                print("\n󰑝 B y e  󰔷")
                 break
 
     else:
