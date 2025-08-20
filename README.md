@@ -1,16 +1,20 @@
-# NyxAI
-[![GitHub watchers](https://img.shields.io/github/watchers/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/watchers)
-[![GitHub stars](https://img.shields.io/github/stars/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/stargazers)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/pulls)
-[![GitHub issues](https://img.shields.io/github/issues/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/issues)
-[![GitHub forks](https://img.shields.io/github/forks/ARCANGEL0/NyxAI.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyxAI/network/members)
+<div align="center"> 
+
+[nyven.png](https://postimg.cc/4KwrHFbD)
+
+# Nyven.AI
+[![GitHub watchers](https://img.shields.io/github/watchers/ARCANGEL0/NyvenAI-cli.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyvenAI-cli/watchers)
+[![GitHub stars](https://img.shields.io/github/stars/ARCANGEL0/NyvenAI-cli.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyvenAI-cli/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ARCANGEL0/NyvenAI-cli.svg?style=flat-square&color=4c1)](https://github.com/ARCANGEL0/NyvenAI-cli/network/members)
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square)
+
+</div> 
 
 -----------
 
 ## About 
 
-NyxAI is a lightweight, fast, and extensible AI assistant for your terminal.  
+Nyven.AI is a lightweight, fast, and extensible AI assistant for your terminal.  
 It supports multiple modes, tidy formatted output in terminal window, persistent chat history, and an optional pentest agent (experimental).
 
 ## Features
@@ -18,7 +22,7 @@ It supports multiple modes, tidy formatted output in terminal window, persistent
 - **Fast & Lightweight** – Minimal dependencies, instant startup with a single binary.
 - **Multiple Modes** – Generic AI chat + Web search, shell commands and execution, code generation & save to file, pentest mode with interactive and autonomous execution.
 - **Formatted output** – Easy visualization data on terminal, outputs saved in frames responsive to window size.
-- **Persistent History** – Keeps context of chat if used with proper flags. Chat history is saved in ~/.config/NyxAI/chats.json
+- **Persistent History** – Keeps context of chat if used with proper flags. Chat history is saved in ~/.config/Nyven.AI/chats.json
 - **No OpenAI dependencies** – Since I'm motivated by opensource and I don't want to set any API key to use these corporate paid AI models, I'm using my personal local model, present in this code, totally modifiable to set your own endpoint or ollama model from *:11434.
  
 ---
@@ -28,8 +32,8 @@ It supports multiple modes, tidy formatted output in terminal window, persistent
 Clone the repository and make Nyx globally available:
 
 ```bash
-git clone https://github.com/arcangel0/NyxAI
-cd NyxAI
+git clone https://github.com/ARCANGEL0/NyvenAI-cli
+cd Nyven.AI
 chmod +x nyx.py
 sudo mv nyx.py /usr/bin/nyx
 ```
