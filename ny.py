@@ -467,7 +467,7 @@ def ollama_active():
      try:
         r = requests.get(f"{API_OLLAMA_URL}/api/tags", timeout=2)
         return r.status_code == 200
-    except requests.RequestException:
+     except requests.RequestException:
         return False
 
 
