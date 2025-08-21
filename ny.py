@@ -15,6 +15,9 @@ import itertools
 import threading
 import time
 import os
+from requests_toolbelt.multipart.encoder import MultipartEncoder
+import re
+import mimetypes
 import platform
 import socket
 import psutil
@@ -439,22 +442,23 @@ def prompt_filename():
     except Exception:
         return input("Filename: ").strip()
 
+
 def upload_file(filepath: str) -> str:
-    if not os.path.exists(filepath):
-        raise FileNotFoundError(f"File not found: {filepath}")
-
-    # Get best server
-    server = requests.get("https://api.gofile.io/getServer").json()["data"]["server"]
-
-    with open(filepath, "rb") as f:
-        r = requests.post(
-            f"https://{server}.gofile.io/uploadFile",
-            files={"file": f}
-        )
-    if r.status_code == 200:
-        return r.json()["data"]["downloadPage"]
-    else:
-        raise Exception(f"Upload failed: {r.text}")
+    if not os.path.isfile(filepath):
+        raise FileNotFoundError(filepath)
+    s = requests.Session()
+    s.headers.update({"User-Agent":"Mozilla/5.0"})
+    token = re.search(r'PF\.obj\.config\.auth_token="([^"]+)', s.get("https://imgbb.com").text).group(1)
+    with open(filepath,"rb") as f:
+        data = f.read()
+    ext = filepath.split(".")[-1] or "jpg"
+    form = MultipartEncoder(fields={"source":("image."+ext,data,mimetypes.guess_type("image."+ext)[0] or "image/jpeg"),"type":"file","action":"upload","timestamp":str(int(time.time()*1000)),"auth_token":token})
+    r = s.post("https://imgbb.com/json", data=form, headers={"Content-Type": form.content_type,"Origin":"https://imgbb.com","Referer":"https://imgbb.com/upload","Accept":"*/*"})
+    r.raise_for_status()
+    j = r.json()
+    if "image" in j and "url" in j["image"]:
+        return j["image"]["url"]
+    raise Exception(str(j))        
 
 def checkInternet(host="8.8.8.8", port=53, timeout=3):
      try:
@@ -499,7 +503,7 @@ def call_api_plain(system_prompt, user_msg, use_web=False, upload=False, filePat
             imageLink = upload_file(filePath)
             payload = {
                 "link": imageLink,
-                "messages": [
+                "conversation": [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_msg}
                 ]
@@ -520,7 +524,11 @@ def call_api_plain(system_prompt, user_msg, use_web=False, upload=False, filePat
             }
         r = requests.post(url, json=payload)
         r.raise_for_status()
-        data = r.json()
+        match = re.search(r"\{.*\}", r.text, re.DOTALL)
+        if not match:
+            raise Exception("No JSON found in response body")
+
+        data = json.loads(match.group(0))
         return data.get("response", "No 'response' field in API output.")
     except requests.RequestException as e:
         return f"Error: {e}"
@@ -578,21 +586,23 @@ def main():
     pentest_agent = False
     upload_mode = False
     new_args = []
+    i = 0
     for arg in args:
         if arg in ("-s", "--shell"):
             shell_mode = True
         elif arg in ("-c", "--code"):
             code_mode = True
         elif arg in ("-w", "--web"):
-            web_mode = True
+                    web_mode = True
         elif arg in ("-f", "--file"):
             upload_mode = True
-            if i + 1 < len(args):
+            try:
                 file_path = args[i + 1]
-                i += 1 
-            else:
+                i += 1                 
+                
+            except IndexError:
                 print(f"{Fore.RED}Error: -f flag requires a file path{Style.RESET_ALL}")
-                sys.exit(1)
+                sys.exit(1)            
         elif arg in ("-a", "--auto"):
             auto_mode = True
         elif arg in ("-i", "--interactive"):
@@ -609,6 +619,7 @@ def main():
             new_args.append(arg)
     args = new_args
     user_input = " ".join(args).strip()
+
     if not sys.stdin.isatty():
         piped_data = sys.stdin.read().strip()
         if user_input:
